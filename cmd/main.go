@@ -13,7 +13,7 @@ const modifier int32 = 5
 func main() {
 	chip8 := chip8.CHIP8{}
 	chip8.Init()
-	chip8.LoadROM("chip8-picture.c8")
+	chip8.LoadROM("roms/pong.c8")
 
 	// Initialize sdl2
 	if sdlErr := sdl.Init(uint32(sdl.INIT_EVERYTHING)); sdlErr != nil {
@@ -55,7 +55,7 @@ func main() {
 					canvas.SetDrawColor(0, 0, 0, 255)
 				}
 				canvas.FillRect(&sdl.Rect{
-					Y: int32(20) * modifier,
+					Y: int32(i/32) * modifier,
 					X: int32(i) * modifier,
 					W: modifier,
 					H: modifier,
